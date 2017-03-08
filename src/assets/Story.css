@@ -1,0 +1,30 @@
+.Story-list {
+  padding: 0 10px;
+}
+
+.Story-item {
+  padding: 5px 0 10px;
+  border-bottom: 1px solid #ccc
+}
+.Story-item:last-child {
+  border-bottom: none;
+}
+
+.Story-title {
+  margin: 5px 0;
+}
+.Story-title a {
+  color: #333
+}
+
+.Story-source {
+
+}
+
+.Story-info {
+
+}
+
+.Story-comments {
+
+}
