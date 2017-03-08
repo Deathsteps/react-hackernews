@@ -32,7 +32,7 @@ export const getTopStories = () => {
       ids => fetchItems(ids.slice(0, 30)).then(resolve, reject),
       reject
     )
-  });
+  })
 }
 
 export const getStoryComments = (commentIds) => {
