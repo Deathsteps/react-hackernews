@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { fetchTopStories } from './store/actions/stories'
 import './assets/App.css'
 import './assets/Story.css'
 
 class App extends Component {
   componentDidMount () {
+    this.props.fetchTopStories()
   }
 
   render() {
@@ -14,9 +17,9 @@ class App extends Component {
         </header>
         <div className="Story-list">
         {
-          [1,2,3,4,5,6,7].map(() => {
+          [1,2,3,4,5,6,7].map((item) => {
             return (
-              <div className="Story-item">
+              <div className="Story-item" key={item}>
                 <h3 className="Story-title">
                   <a href="#">Finding Free Food with Python</a>
                 </h3>
@@ -39,4 +42,11 @@ class App extends Component {
   }
 }
 
-export default App
+App.propTypes = {
+  fetchTopStories: PropTypes.func
+}
+
+export default connect(
+  state => state.stories,
+  { fetchTopStories }
+)(App)

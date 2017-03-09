@@ -28,10 +28,11 @@ function fetchItems(ids) {
 
 export const getTopStories = () => {
   return new Promise(function(resolve, reject) {
-    fetchData('topstories').then(
-      ids => fetchItems(ids.slice(0, 30)).then(resolve, reject),
-      reject
-    )
+    setTimeout(reject, 2000)
+    // fetchData('topstories').then(
+    //   ids => fetchItems(ids.slice(0, 30)).then(resolve, reject),
+    //   reject
+    // )
   })
 }
 
