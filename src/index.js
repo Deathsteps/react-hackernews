@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import createStore from './store/createStore'
 import App from './App'
-import './assets/index.css'
+import './index.css'
 
 let store = createStore()
 

@@ -1,0 +1,8 @@
+.Loading {
+  text-align: center;
+}
+.Loading img {
+  margin-top: 20px;
+  width: 64px;
+  height: 64px;
+}
