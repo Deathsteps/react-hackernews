@@ -26,9 +26,11 @@ function fetchItems(ids) {
   return Promise.all(ids.map(id => fetchItem(id)))
 }
 
+/*-------------Exports----------------*/
+
 export const getTopStories = () => {
   return new Promise(function(resolve, reject) {
-    setTimeout(reject, 2000)
+    setTimeout(reject, 200)
     // fetchData('topstories').then(
     //   ids => fetchItems(ids.slice(0, 30)).then(resolve, reject),
     //   reject

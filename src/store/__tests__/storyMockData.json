@@ -1,0 +1,24 @@
+[
+  {
+    "by" : "dhouston",
+    "descendants" : 71,
+    "id" : 8863,
+    "kids" : [ 8952, 9224, 8917, 8884, 8887 ],
+    "score" : 111,
+    "time" : 1175714200,
+    "title" : "My YC app: Dropbox - Throw away your USB drive",
+    "type" : "story",
+    "url" : "http://www.getdropbox.com/u/2/screencast.html"
+  },
+  {
+    "by" : "bejson",
+    "descendants" : 58,
+    "id" : 7763,
+    "kids" : [ 1952, 3224],
+    "score" : 201,
+    "time" : 1175814200,
+    "title" : "Test react component with Jest",
+    "type" : "story",
+    "url" : "http://www.getdropbox.com/u/2/screencast.html"
+  }
+]
