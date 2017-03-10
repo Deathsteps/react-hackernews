@@ -40,16 +40,22 @@ const defaultPlayloadCreator = {
  * @param  {asyncMethod} asyncMethod 异步函数
  * （nodejs callback style function or a function return a promise  ）
  * @param  {Object} playloadCreator playload构造器
- * @param  {Function} playloadCreator.request 请求开始payload构造函数 params => {}
- * @param  {Function} playloadCreator.complete 请求完成payload构造函数 (result, params) => {}
- * @param  {Function} playloadCreator.fail 请求失败payload构造函数 (err, params) => {}
+ * @param  {Function} playloadCreator.request 请求开始playload构造函数 params => {}
+ * @param  {Function} playloadCreator.complete 请求完成playload构造函数 (result, params) => {}
+ * @param  {Function} playloadCreator.fail 请求失败playload构造函数 (err, params) => {}
  * @return {Function}             actionCreator
  */
 export default function (
   actionName,
   asyncMethod,
-  playloadCreator = defaultPlayloadCreator
+  playloadCreator
 ) {
+  // merge with default
+  playloadCreator = {
+    ...defaultPlayloadCreator,
+    ...playloadCreator
+  }
+
   return function (...args) {
     return dispatch => {
       // dispatch request action

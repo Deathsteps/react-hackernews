@@ -4,13 +4,13 @@ const StoryItem = (props) => {
   return (
     <div className="Story-item">
       <h3 className="Story-title">
-        <a href="#">{props.title}</a>
+        <a href={props.url}>{props.title}</a>
       </h3>
       <div className="Story-source">
         <a href="#">{props.source}</a>
       </div>
       <div className="Story-info">
-        {props.score} points by <a href="#">{props.by}</a> { props.timeText/* 4 hours ago */ }
+        {props.score} points by <a href="#">{props.by}</a> { props.timeText }
       </div>
       <div className="Story-comments">
         <a href="#">{props.descendants} comments</a>
@@ -21,6 +21,7 @@ const StoryItem = (props) => {
 
 StoryItem.propTypes = {
   title: React.PropTypes.string,
+  url: React.PropTypes.string,
   source: React.PropTypes.string,
   score: React.PropTypes.number,
   by: React.PropTypes.string,
