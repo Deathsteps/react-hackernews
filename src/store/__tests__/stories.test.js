@@ -1,6 +1,7 @@
 import createMockDispatch from '../createMockDispatch'
-import { STORIES_REQUEST, STORIES_COMPLETE } from '../actionTypes'
+import { STORIES_REQUEST, STORIES_COMPLETE, STORIES_FAIL } from '../actionTypes'
 import { fetchTopStories } from '../actions/stories'
+import storyReducer from '../reducers/stories'
 
 // For more information about jest mock, see:
 // http://stackoverflow.com/questions/40465047/how-can-i-mock-an-es6-module-import-using-jest#answer-40465435
@@ -21,7 +22,7 @@ jest.mock('../api', () => ({
 const STORY_MOCK_DATA = require('./storyMockData.json')
 
 describe('Stories actions and reducers works', () => {
-  describe('Actions', () => {
+  describe('actions', () => {
     test('fetchTopStories', done => {
       const dispatch = createMockDispatch([
         { type: STORIES_REQUEST, playload: undefined },
@@ -33,6 +34,42 @@ describe('Stories actions and reducers works', () => {
     afterAll(() => {
       // unmock api module
       jest.unmock('../api')
+    })
+  })
+
+  describe('reducers', () => {
+    test('initial state', () => {
+      expect(storyReducer(undefined, {}))
+        .toEqual({
+          fetching: false,
+          stories: null,
+          fetchError: null
+        })
+    })
+
+    test('stories fetching related', () => {
+      let requestState, state
+      requestState = storyReducer(undefined, { type: STORIES_REQUEST })
+      expect(requestState).toEqual({
+        fetching: true,
+        stories: null,
+        fetchError: null
+      })
+
+      state = storyReducer(requestState, { type: STORIES_COMPLETE, playload: [{ test: 1 }] })
+      expect(state).toEqual({
+        fetching: false,
+        stories: [{ test: 1 }],
+        fetchError: null
+      })
+
+      let error = new Error('Test')
+      state = storyReducer(requestState, { type: STORIES_FAIL, playload: error })
+      expect(state).toEqual({
+        fetching: false,
+        stories: null,
+        fetchError: error
+      })
     })
   })
 })

@@ -19,11 +19,11 @@ export default handleActions({
   [ STORIES_COMPLETE ]: (state, action) => ({
     ...state,
     fetching: false,
-    stories: action.payload
+    stories: action.playload
   }),
   [ STORIES_FAIL ]: (state, action) => ({
     ...state,
     fetching: false,
-    fetchError: action.payload
+    fetchError: action.playload
   })
 }, initialState)
