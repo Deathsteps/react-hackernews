@@ -29,12 +29,15 @@ function fetchItems(ids) {
 /*-------------Exports----------------*/
 
 export const getTopStories = () => {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve/*, reject*/) {
     // setTimeout(() => reject(new Error('Bad Network')), 200)
-    fetchData('topstories').then(
-      ids => fetchItems(ids.slice(0, 30)).then(resolve, reject),
-      reject
-    )
+    // fetchData('topstories').then(
+    //   ids => fetchItems(ids.slice(0, 30)).then(resolve, reject),
+    //   reject
+    // )
+    setTimeout(() => {
+      resolve(require('./__tests__/storyMockData.json'))
+    }, 500)
   })
 }
 
