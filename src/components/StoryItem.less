@@ -1,0 +1,42 @@
+@import "../common.less";
+
+.Story-item {
+  padding: @item-padding;
+  border-bottom: 1px solid #ccc;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.Story-title {
+  margin: @base-gap 0;
+  a {
+    color: #333
+  }
+}
+
+.Story-source {
+  position: relative;
+  margin-bottom: @base-gap;
+  a {
+    vertical-align: middle;
+    &::before {
+      display: inline-block;
+      margin-right: 0.5em;
+      height: 0.8em;
+      content: " ";
+      border-left: 3px solid #333;
+    }
+  }
+}
+
+.Story-info {
+  color: @info-color;
+  a {
+    font-weight: bold
+  }
+}
+
+.Story-comments {
+  text-align: right;
+}

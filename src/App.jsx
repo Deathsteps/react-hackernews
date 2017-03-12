@@ -1,7 +1,8 @@
 import React from 'react'
 import './App.css'
 // import HomeView from './views/HomeView'
-import ProfileView from './views/ProfileView'
+// import ProfileView from './views/ProfileView'
+import CommentsView from './views/CommentsView'
 
 class App extends React.Component {
   render() {
@@ -11,7 +12,8 @@ class App extends React.Component {
           <h1>Hacker News</h1>
         </header>
         {/* <HomeView /> */}
-        <ProfileView />
+        {/* <ProfileView /> */}
+        <CommentsView />
       </div>
     )
   }

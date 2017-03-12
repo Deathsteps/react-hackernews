@@ -10,3 +10,7 @@
 .App a {
   text-decoration: none
 }
+
+.view {
+  padding: 0 10px;
+}

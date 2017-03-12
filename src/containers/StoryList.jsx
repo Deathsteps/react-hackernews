@@ -23,7 +23,7 @@ class StoryList extends React.Component {
     }
 
     return (
-      <div className="Story-list">
+      <div className="view">
       {this.props.stories.map((item) => {
         return (
           <StoryItem

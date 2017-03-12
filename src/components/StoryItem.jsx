@@ -1,4 +1,5 @@
 import React from 'react'
+import './StoryItem.less'
 
 const StoryItem = (props) => {
   return (
@@ -12,9 +13,10 @@ const StoryItem = (props) => {
       <div className="Story-info">
         {props.score} points by <a href="#">{props.by}</a> { props.timeText }
       </div>
-      <div className="Story-comments">
-        <a href="#">{props.descendants} comments</a>
-      </div>
+      { !props.isCommentsHide ?
+        <div className="Story-comments">
+          <a href="#">{props.descendants} comments</a>
+        </div> : null }
     </div>
   )
 }
@@ -27,7 +29,9 @@ StoryItem.propTypes = {
   score: React.PropTypes.number,
   by: React.PropTypes.string,
   timeText: React.PropTypes.string,
-  descendants: React.PropTypes.number
+  descendants: React.PropTypes.number,
+
+  isCommentsHide: React.PropTypes.bool
 }
 
 export default StoryItem
