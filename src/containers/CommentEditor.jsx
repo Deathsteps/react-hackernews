@@ -3,7 +3,7 @@ import React from 'react'
 import StoryItem from '../components/StoryItem'
 import './CommentEditor.less'
 
-const testData = require('../store/__tests__/storyMockData.json')[0]
+const testData = require('../store/__tests__/mockData/stories.raw.json')[0]
 
 const CommentEditor = () => {
   return (

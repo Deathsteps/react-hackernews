@@ -1,5 +1,7 @@
 import createMockDispatch from '../createMockDispatch'
 import { fetchStoryComments } from '../actions/comments'
+import { COMMENTS_REQUEST, COMMENTS_COMPLETE, COMMENTS_FAIL } from '../actionTypes'
+import commentReducer from '../reducers/comments'
 
 import '../api'
 jest.mock('../api', () => ({
@@ -26,6 +28,42 @@ describe('Comments actions and reducers works', () => {
 
     afterAll(() => {
       jest.unmock('../api')
+    })
+  })
+
+  describe('reducers', () => {
+    test('initial state', () => {
+      expect(commentReducer(undefined, {}))
+        .toEqual({
+          fetching: false,
+          comments: null,
+          fetchError: null
+        })
+    })
+
+    test('comments fetching related', () => {
+      let requestState, state
+      requestState = commentReducer(undefined, { type: COMMENTS_REQUEST })
+      expect(requestState).toEqual({
+        fetching: true,
+        comments: null,
+        fetchError: null
+      })
+
+      state = commentReducer(requestState, { type: COMMENTS_COMPLETE, playload: [{ test: 1 }] })
+      expect(state).toEqual({
+        fetching: false,
+        comments: [{ test: 1 }],
+        fetchError: null
+      })
+
+      let error = new Error('Test')
+      state = commentReducer(requestState, { type: COMMENTS_FAIL, playload: error })
+      expect(state).toEqual({
+        fetching: false,
+        comments: null,
+        fetchError: error
+      })
     })
   })
 })
