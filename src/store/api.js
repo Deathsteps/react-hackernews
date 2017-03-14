@@ -26,6 +26,10 @@ function fetchItems(ids) {
   return Promise.all(ids.map(id => fetchItem(id)))
 }
 
+export function test() {
+  fetchItems()
+}
+
 /*-------------Exports----------------*/
 
 export const getTopStories = () => {
@@ -36,11 +40,16 @@ export const getTopStories = () => {
     //   reject
     // )
     setTimeout(() => {
-      resolve(require('./__tests__/storyMockData.json'))
+      resolve(require('./__tests__/mockData/stories.raw.json'))
     }, 500)
   })
 }
 
-export const getStoryComments = (commentIds) => {
-  return fetchItems(commentIds)
+export const getStoryComments = () => {
+  return new Promise(function(resolve) {
+    setTimeout(() => {
+      resolve(require('./__tests_mockData/comments.raw.json'))
+    }, 500)
+  });
+  // return fetchItems()
 }

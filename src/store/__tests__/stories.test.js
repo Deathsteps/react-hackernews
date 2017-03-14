@@ -13,20 +13,20 @@ jest.mock('../api', () => ({
       setTimeout(() => {
         // Not allowed to reference any out-of-scope variables
         // see https://github.com/facebook/jest/issues/2567
-        resolve(require('./storyMockData.json'))
+        resolve(require('./mockData/stories.raw.json'))
       }, 300)
     });
   })
 }))
 
-const STORY_MOCK_DATA = require('./storyMockData.json')
+const EXPECTED_STORIES = require('./mockData/stories.expected.json')
 
 describe('Stories actions and reducers works', () => {
   describe('actions', () => {
     test('fetchTopStories', done => {
       const dispatch = createMockDispatch([
-        { type: STORIES_REQUEST, playload: undefined },
-        { type: STORIES_COMPLETE, playload: STORY_MOCK_DATA }
+        { type: STORIES_REQUEST },
+        { type: STORIES_COMPLETE, playload: EXPECTED_STORIES }
       ], done)
       dispatch(fetchTopStories())
     })
