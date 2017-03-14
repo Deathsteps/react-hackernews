@@ -6,7 +6,6 @@ import Loading from '../components/Loading'
 import StoryItem from '../components/StoryItem'
 
 import { fetchTopStories } from '../store/actions/stories'
-import './StoryList.css'
 
 class StoryList extends React.Component {
   componentDidMount () {
