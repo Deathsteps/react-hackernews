@@ -3,7 +3,7 @@ import './CommentItem.less'
 
 const CommentItem = (props) => {
   let levelStyle = {
-    marginLeft: (props.level - 1) * 15 + 'px'
+    marginLeft: props.level * 15 + 'px'
   }
   return (
     <div className="Comment-item" style={ levelStyle }>

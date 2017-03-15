@@ -48,7 +48,7 @@ export const getTopStories = () => {
 export const getStoryComments = () => {
   return new Promise(function(resolve) {
     setTimeout(() => {
-      resolve(require('./__tests_mockData/comments.raw.json'))
+      resolve(require('./__tests__/mockData/comments.raw.json'))
     }, 500)
   });
   // return fetchItems()
