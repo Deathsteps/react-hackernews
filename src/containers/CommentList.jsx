@@ -5,7 +5,10 @@ import ErrorLayer from '../components/ErrorLayer'
 import Loading from '../components/Loading'
 import CommentItem from '../components/CommentItem'
 
-import { fetchStoryComments } from '../store/actions/comments'
+import {
+  fetchStoryComments,
+  toggleSubComments
+} from '../store/actions/comments'
 
 class CommentList extends React.Component {
 
@@ -24,8 +27,14 @@ class CommentList extends React.Component {
 
     return (
       <div className="Comment-list">
-        {this.props.comments.map((item, key) => {
-          return <CommentItem key={key} {...item}/>
+        {this.props.comments.map((item) => {
+          return (
+            <CommentItem
+              key={item.id}
+              {...item}
+              onSubToggle={this.props.toggleSubComments}
+            />
+          )
         })}
       </div>
     )
@@ -34,6 +43,7 @@ class CommentList extends React.Component {
 
 CommentList.propTypes = {
   fetchStoryComments: React.PropTypes.func,
+  toggleSubComments: React.PropTypes.func,
   fetching: React.PropTypes.bool,
   comments: React.PropTypes.array,
   fetchError: React.PropTypes.object
@@ -41,5 +51,5 @@ CommentList.propTypes = {
 
 export default connect(
   state => state.comments,
-  { fetchStoryComments}
+  { fetchStoryComments, toggleSubComments }
 )(CommentList)
