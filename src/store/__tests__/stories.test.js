@@ -26,7 +26,7 @@ describe('Stories actions and reducers works', () => {
     test('fetchTopStories', done => {
       const dispatch = createMockDispatch([
         { type: STORIES_REQUEST },
-        { type: STORIES_COMPLETE, playload: EXPECTED_STORIES }
+        { type: STORIES_COMPLETE, payload: EXPECTED_STORIES }
       ], done)
       dispatch(fetchTopStories())
     })
@@ -56,7 +56,7 @@ describe('Stories actions and reducers works', () => {
         fetchError: null
       })
 
-      state = storyReducer(requestState, { type: STORIES_COMPLETE, playload: [{ test: 1 }] })
+      state = storyReducer(requestState, { type: STORIES_COMPLETE, payload: [{ test: 1 }] })
       expect(state).toEqual({
         fetching: false,
         stories: [{ test: 1 }],
@@ -64,7 +64,7 @@ describe('Stories actions and reducers works', () => {
       })
 
       let error = new Error('Test')
-      state = storyReducer(requestState, { type: STORIES_FAIL, playload: error })
+      state = storyReducer(requestState, { type: STORIES_FAIL, payload: error })
       expect(state).toEqual({
         fetching: false,
         stories: null,

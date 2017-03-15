@@ -9,8 +9,8 @@ describe('createThunkAction works', () => {
       }
       const successAction = createThunkAction('SUCCESS_TEST', successFunction)
       const dispatchA = createMockDispatch([
-        { type: 'SUCCESS_TEST_REQUEST', playload: undefined },
-        { type: 'SUCCESS_TEST_COMPLETE', playload: 1 }
+        { type: 'SUCCESS_TEST_REQUEST', payload: undefined },
+        { type: 'SUCCESS_TEST_COMPLETE', payload: 1 }
       ], done)
       dispatchA(successAction())
 
@@ -20,8 +20,8 @@ describe('createThunkAction works', () => {
       }
       const failureAction = createThunkAction('FAILURE_TEST', failureFunction)
       const dispatchB = createMockDispatch([
-        { type: 'FAILURE_TEST_REQUEST', playload: undefined },
-        { type: 'FAILURE_TEST_FAIL', playload: err, error: true }
+        { type: 'FAILURE_TEST_REQUEST', payload: undefined },
+        { type: 'FAILURE_TEST_FAIL', payload: err, error: true }
       ], done)
       dispatchB(failureAction())
     })
@@ -34,8 +34,8 @@ describe('createThunkAction works', () => {
       }
       const successAction = createThunkAction('SUCCESS_TEST', successFunction)
       const dispatchA = createMockDispatch([
-        { type: 'SUCCESS_TEST_REQUEST', playload: undefined },
-        { type: 'SUCCESS_TEST_COMPLETE', playload: 1 }
+        { type: 'SUCCESS_TEST_REQUEST', payload: undefined },
+        { type: 'SUCCESS_TEST_COMPLETE', payload: 1 }
       ], done)
       dispatchA(successAction())
 
@@ -47,8 +47,8 @@ describe('createThunkAction works', () => {
       }
       const failureAction = createThunkAction('FAILURE_TEST', failureFunction)
       const dispatchB = createMockDispatch([
-        { type: 'FAILURE_TEST_REQUEST', playload: undefined },
-        { type: 'FAILURE_TEST_FAIL', playload: err, error: true }
+        { type: 'FAILURE_TEST_REQUEST', payload: undefined },
+        { type: 'FAILURE_TEST_FAIL', payload: err, error: true }
       ], done)
       dispatchB(failureAction())
     })
@@ -61,8 +61,8 @@ describe('createThunkAction works', () => {
       }
       const action = createThunkAction('TEST', asyncAdd)
       const dispatch = createMockDispatch([
-        { type: 'TEST_REQUEST', playload: undefined },
-        { type: 'TEST_COMPLETE', playload: { result: 3 } }
+        { type: 'TEST_REQUEST', payload: undefined },
+        { type: 'TEST_COMPLETE', payload: { result: 3 } }
       ], done)
       dispatch(action(1, 2))
     })
@@ -75,8 +75,8 @@ describe('createThunkAction works', () => {
       }
       const action = createThunkAction('TEST', asyncAdd)
       const dispatch = createMockDispatch([
-        { type: 'TEST_REQUEST', playload: undefined },
-        { type: 'TEST_COMPLETE', playload: { result: 3 } }
+        { type: 'TEST_REQUEST', payload: undefined },
+        { type: 'TEST_COMPLETE', payload: { result: 3 } }
       ], done)
       dispatch(action(1, 2))
     })
@@ -98,8 +98,8 @@ describe('createThunkAction works', () => {
         }
       )
       const dispatchA = createMockDispatch([
-        { type: 'SUCCESS_TEST_REQUEST', playload: 6 },
-        { type: 'SUCCESS_TEST_COMPLETE', playload: 10 }
+        { type: 'SUCCESS_TEST_REQUEST', payload: 6 },
+        { type: 'SUCCESS_TEST_COMPLETE', payload: 10 }
       ], done)
       dispatchA(successAction.apply(null, args))
 
@@ -116,8 +116,8 @@ describe('createThunkAction works', () => {
         }
       )
       const dispatchB = createMockDispatch([
-        { type: 'FAILURE_TEST_REQUEST', playload: 0 },
-        { type: 'FAILURE_TEST_FAIL', playload: 7, error: true }
+        { type: 'FAILURE_TEST_REQUEST', payload: 0 },
+        { type: 'FAILURE_TEST_FAIL', payload: 7, error: true }
       ], done)
       dispatchB(failureAction.apply(null, args))
     })
@@ -139,8 +139,8 @@ describe('createThunkAction works', () => {
         }
       )
       const dispatchA = createMockDispatch([
-        { type: 'SUCCESS_TEST_REQUEST', playload: 6 },
-        { type: 'SUCCESS_TEST_COMPLETE', playload: 10 }
+        { type: 'SUCCESS_TEST_REQUEST', payload: 6 },
+        { type: 'SUCCESS_TEST_COMPLETE', payload: 10 }
       ], done)
       dispatchA(successAction.apply(null, args))
 
@@ -159,8 +159,8 @@ describe('createThunkAction works', () => {
         }
       )
       const dispatchB = createMockDispatch([
-        { type: 'FAILURE_TEST_REQUEST', playload: 0 },
-        { type: 'FAILURE_TEST_FAIL', playload: 7, error: true }
+        { type: 'FAILURE_TEST_REQUEST', payload: 0 },
+        { type: 'FAILURE_TEST_FAIL', payload: 7, error: true }
       ], done)
       dispatchB(failureAction.apply(null, args))
     })

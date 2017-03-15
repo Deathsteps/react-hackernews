@@ -21,7 +21,7 @@ describe('Comments actions and reducers works', () => {
     test('fetchStoryComments', done => {
       const dispatch = createMockDispatch([
         { type: 'COMMENTS_REQUEST' },
-        { type: 'COMMENTS_COMPLETE', playload: EXPECTED_COMMENTS },
+        { type: 'COMMENTS_COMPLETE', payload: EXPECTED_COMMENTS },
       ], done)
       dispatch(fetchStoryComments())
     })
@@ -50,7 +50,7 @@ describe('Comments actions and reducers works', () => {
         fetchError: null
       })
 
-      state = commentReducer(requestState, { type: COMMENTS_COMPLETE, playload: [{ test: 1 }] })
+      state = commentReducer(requestState, { type: COMMENTS_COMPLETE, payload: [{ test: 1 }] })
       expect(state).toEqual({
         fetching: false,
         comments: [{ test: 1 }],
@@ -58,7 +58,7 @@ describe('Comments actions and reducers works', () => {
       })
 
       let error = new Error('Test')
-      state = commentReducer(requestState, { type: COMMENTS_FAIL, playload: error })
+      state = commentReducer(requestState, { type: COMMENTS_FAIL, payload: error })
       expect(state).toEqual({
         fetching: false,
         comments: null,

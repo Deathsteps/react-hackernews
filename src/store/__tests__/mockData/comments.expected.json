@@ -3,11 +3,12 @@
     "id": 2921983,
     "by": "norvig",
     "text": "Aw shucks, guys ... you make me blush with your compliments.<p>Tell you what, I'll make a deal: I ll keep writing if you keep reading. K?",
-    "kids": [ 2922097, 2922429, 2924562 ],
+    "kids": [ 2922097, 2922429, 2924562, 2922709 ],
     "parent": 2921506,
     "time": 1484211127,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 0
   },
   {
@@ -19,6 +20,7 @@
     "time": 1484216327,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 1
   },
   {
@@ -29,6 +31,7 @@
     "time": 1484217327,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 2
   },
   {
@@ -39,6 +42,7 @@
     "time": 1484216327,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 2
   },
   {
@@ -49,6 +53,7 @@
     "time": 1484214327,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 1
   },
   {
@@ -59,17 +64,19 @@
     "time": 1484214127,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 1
   },
   {
     "id": 3921983,
     "by": "norvig",
     "text": "Aw shucks, guys ... you make me blush with your compliments.<p>Tell you what, I'll make a deal: I ll keep writing if you keep reading. K?",
-    "kids": [ 3922097, 3922429, 3924562 ],
+    "kids": [ 3922097, 3922429, 3924562, 3922709 ],
     "parent": 3921506,
     "time": 1484211127,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 0
   },
   {
@@ -81,6 +88,7 @@
     "time": 1484216327,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 1
   },
   {
@@ -91,6 +99,7 @@
     "time": 1484217327,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 2
   },
   {
@@ -101,6 +110,7 @@
     "time": 1484216327,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 2
   },
   {
@@ -111,6 +121,7 @@
     "time": 1484214327,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 1
   },
   {
@@ -121,6 +132,7 @@
     "time": 1484214127,
     "type": "comment",
     "timeText": "2 months ago",
+    "displayed": true,
     "level": 1
   }
 ]
