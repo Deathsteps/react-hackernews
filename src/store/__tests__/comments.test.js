@@ -1,7 +1,12 @@
 import createMockDispatch from '../createMockDispatch'
-import { fetchStoryComments } from '../actions/comments'
-import { COMMENTS_REQUEST, COMMENTS_COMPLETE, COMMENTS_FAIL } from '../actionTypes'
+import { fetchStoryComments, toggleSubComments } from '../actions/comments'
 import commentReducer from '../reducers/comments'
+import {
+  COMMENTS_REQUEST,
+  COMMENTS_COMPLETE,
+  COMMENTS_FAIL,
+  TOGGLE_SUB_COMMENTS
+} from '../actionTypes'
 
 import '../api'
 jest.mock('../api', () => ({
@@ -20,10 +25,17 @@ describe('Comments actions and reducers works', () => {
   describe('actions', () => {
     test('fetchStoryComments', done => {
       const dispatch = createMockDispatch([
-        { type: 'COMMENTS_REQUEST' },
-        { type: 'COMMENTS_COMPLETE', payload: EXPECTED_COMMENTS },
+        { type: COMMENTS_REQUEST },
+        { type: COMMENTS_COMPLETE, payload: EXPECTED_COMMENTS },
       ], done)
       dispatch(fetchStoryComments())
+    })
+
+    test('toggleSubComments', done => {
+      const dispatch = createMockDispatch([
+        { type: TOGGLE_SUB_COMMENTS, payload: 1 }
+      ], done)
+      dispatch(toggleSubComments(1))
     })
 
     afterAll(() => {
@@ -63,6 +75,31 @@ describe('Comments actions and reducers works', () => {
         fetching: false,
         comments: null,
         fetchError: error
+      })
+    })
+
+    test('deal with sub comments toggling', () => {
+      let state = {
+        fetching: false,
+        comments: EXPECTED_COMMENTS,
+        fetchError: null
+      }
+      let result = commentReducer(state, { type: TOGGLE_SUB_COMMENTS, payload: 2922097 })
+      expect(result.fetching).toBe(false)
+      expect(result.fetchError).toBeNull()
+      result.comments.forEach((item, i) => {
+        if (i === 2 || i === 3) {
+          expect(item.displayed).toBe(false);
+          expect(item.subDisplayed).toBe(false);
+        }
+        else if (i === 1) {
+          expect(item.displayed).toBe(true);
+          expect(item.subDisplayed).toBe(false);
+        }
+        else {
+          expect(item.displayed).toBe(true);
+          expect(item.subDisplayed).toBe(true);
+        }
       })
     })
   })

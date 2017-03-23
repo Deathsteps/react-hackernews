@@ -44,7 +44,7 @@ export default handleActions({
             ...comment,
             subDisplayed
           }
-        } else if ( affectedComments.includes(comment.id) ) {
+        } else if ( affectedComments.indexOf(comment.id) !== -1 ) { // affectedComments.includes(comment.id)
           // add sub sub comments to affected comment array
           if (comment.kids) {
             affectedComments = [...affectedComments, ...comment.kids ]
@@ -52,7 +52,8 @@ export default handleActions({
           // mutate the sub comment displayed field
           return {
             ...comment,
-            displayed: subDisplayed
+            displayed: subDisplayed,
+            subDisplayed: subDisplayed
           }
         } else {
           return comment
