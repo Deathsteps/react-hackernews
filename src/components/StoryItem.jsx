@@ -1,5 +1,6 @@
 import React from 'react'
 import './StoryItem.less'
+import { Link } from 'react-router-dom'
 
 const StoryItem = (props) => {
   return (
@@ -11,17 +12,18 @@ const StoryItem = (props) => {
         <a href={props.sourceUrl} target="__blank">{props.source}</a>
       </div>
       <div className="Story-info">
-        {props.score} points by <a href="#">{props.by}</a> { props.timeText }
+        {props.score} points by <Link to={`/profile/${props.by}`}>{props.by}</Link> { props.timeText }
       </div>
       { !props.isCommentsHide ?
         <div className="Story-comments">
-          <a href="#">{props.descendants} comments</a>
+          <Link to={`/comments/${props.id}`}>{props.descendants} comments</Link>
         </div> : null }
     </div>
   )
 }
 
 StoryItem.propTypes = {
+  id: React.PropTypes.number,
   title: React.PropTypes.string,
   url: React.PropTypes.string,
   source: React.PropTypes.string,
