@@ -10,21 +10,24 @@ const User = (props) => {
       </li>
       <li className="User-item">
         <span className="User-name">created:</span>
-        <span className="User-content">917 days ago</span>
+        <span className="User-content">{ props.createdText }</span>
       </li>
       <li className="User-item">
         <span className="User-name">karma:</span>
-        <span className="User-content">1890</span>
+        <span className="User-content">{ props.karma }</span>
       </li>
       <li className="User-item">
         <span className="User-name">about:</span>
-        <p className="User-content">svenfaw</p>
+        <p className="User-content">{ props.about }</p>
       </li>
     </ul>
   )
 }
 User.propTypes = {
-  id: React.PropTypes.number
+  id: React.PropTypes.string,
+  createdText: React.PropTypes.string,
+  karma: React.PropTypes.number,
+  about: React.PropTypes.string
 }
 
 export default User

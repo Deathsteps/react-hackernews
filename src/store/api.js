@@ -53,3 +53,11 @@ export const getStoryComments = () => {
   });
   // return fetchItems()
 }
+
+export const getUser = () => {
+  return new Promise(function(resolve) {
+    setTimeout(() => {
+      resolve(require('./__tests__/mockData/user.raw.json'))
+    }, 500)
+  });
+}
